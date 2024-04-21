@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #120078, #2e86de, #3498db, #1abc9c, #27ae60, #2ecc71, #3498db, #9b59b6, #8e44ad);
+            animation: gradient 15s linear infinite;
+            overflow: hidden;
+        }
+        .container {
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>House Price Prediction Result</h2>
+        <p>The predicted price for the house is: ₹{{ price }}</p>
+        <button onclick="window.history.back()">Back to Form</button>
+    </div>
+</body>
+</html>

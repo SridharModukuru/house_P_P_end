@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #120078, #2e86de, #3498db, #1abc9c, #27ae60, #f1c40f, #f39c12, #e74c3c, #c0392b, #8e44ad);
+            animation: gradient 15s linear infinite;
+            overflow: hidden;
+        }
+        .container {
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>House Price Prediction</h2>
+        <form action="/submit" method="post">
+            <label for="bedrooms">Bedrooms:</label>
+            <input type="number" name="bedrooms" id="bedrooms" step="1" value="3" required>
+            
+            <label for="bathrooms">Bathrooms:</label>
+            <input type="number" name="bathrooms" id="bathrooms" step="0.1" value="3" required>
+
+            <label for="condition">Condition:</label>
+            <input type="number" name="condition" id="condition" step="1" value="12" required>
+
+            <label for="yr_built">Year Built:</label>
+            <input type="number" name="yr_built" id="yr_built" step="1" value="2005" required>
+
+            <label for="city">City:</label>
+            <input type="number" name="city" id="city" step="1" value="35" required>
+
+            <label for="sqft">Square Footage:</label>
+            <input type="number" name="sqft" id="sqft" step="1" value="15000" required>
+            
+            <button type="submit">Predict Price</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -19,8 +19,8 @@ y = df['price'].copy()
 df.drop(columns=['price'], inplace=True)
 
 scaler = StandardScaler()
-# Reshape the input data from 1D to 2D before applying fit_transform
-df['sqft'] = scaler.fit_transform(df['sqft'].values.reshape(-1, 1))
+
+# df['sqft'] = scaler.fit_transform(df['sqft'].values.reshape(-1, 1))
 
 X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random_state=42)
 
@@ -32,7 +32,9 @@ joblib.dump(lr, file_name)
 
 loaded_model = joblib.load(file_name)
 
-# Reshape the test data before making predictions
-X_test['sqft'] = scaler.transform(X_test['sqft'].values.reshape(-1, 1))
+# X_test['sqft'] = scaler.transform(X_test['sqft'].values.reshape(-1, 1))
 
-pred = loaded_model.predict(X_test)
+x_test_sample = X_test.iloc[[0]]
+pred = loaded_model.predict(x_test_sample)
+# print(type(x_test_sample))
+
