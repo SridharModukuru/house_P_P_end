@@ -17,8 +17,8 @@ jobs:
         shell: bash
 
   goodbye:
-  runs-on: ubuntu-latest
-  steps:
-    - name: goodbye sridhar
-      run: echo "goodbye Sridhar"
-      shell: bash  
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye sridhar
+        run: echo "goodbye Sridhar"
+        shell: bash  
