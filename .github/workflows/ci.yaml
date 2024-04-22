@@ -1,36 +1,24 @@
-name: Deploy Docs
+name: Hello world workflow
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
 
 jobs:
-  doc:
-    name: Documentation
+  hello:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Install mdbook
-        run: |
-          mkdir mdbook
-          curl -Lf https://github.com/rust-lang/mdBook/releases/download/v0.4.6/mdbook-v0.4.6-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook
-          echo "`pwd`/mdbook" >> $GITHUB_PATH
-      - name: Build book
-        run: |
-          git checkout main
-          cd docs
-          mdbook build
-          mv book ${{ runner.temp }}
-      - name: Deploy to GitHub
-        run: |
-          cd ${{ runner.temp }}/book
-          git init
-          git config user.name "Deploy from CI"
-          git config user.email ""
-          git add . .nojekyll
-          git commit -m "Deploy $GITHUB_REF $GITHUB_SHA to gh-pages"
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git push --force --set-upstream origin master:gh-pages
+      - name: hello world
+        run: echo "HEllo sridhar"
+        shell: bash
+
+  goodbye:
+  runs-on: ubuntu-latest
+  steps:
+    - name: goodbye sridhar
+      run: echo "goodbye Sridhar"
+      shell: bash  
